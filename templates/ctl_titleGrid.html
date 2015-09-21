@@ -1,0 +1,31 @@
+HELLO TITLE GRID<br/>
+//-------------------------------------------------------------------------------------------------------------------
+<br/>
+{{dataSelected}}<br/>
+<button ng-click="deleteSelected()">Active Selected</button>
+<button ng-click="xxx()">Count Array</button>
+<table  class="table table-striped table-hover table-bordered">
+    <tr class="success">
+<!--        <td><input type="checkbox"  ng-click="check()" ng-model="selectedAll" /></td>-->
+        <td><input type="checkbox"  ng-model="checkAll" ng-click="check(checkAll)" /></td>
+        <td>รหัสคำนำหน้า</td>
+        <td>ชื่อคำนำหน้า</td>
+        <td>ชื่อคำนำหน้าภาษาอังกฤษ</td>
+        <td>เพศ</td>
+    </tr>
+    <tr data-ng-repeat="ctl_title in ctl_titles | filter : { TITLE_CODE : searchBy.Code, TITLE_NAME : searchBy.Name, TITLE_NAME_ENG : searchBy.NameEng}" 
+        
+        > 
+        <td><input type="checkbox" 
+                   checklist-model="dataSelected.colum"
+                   checklist-value="ctl_title.TITLE_CODE"
+                   data-ng-click="setBtnDel()"
+        /></td>
+        
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.TITLE_CODE}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.TITLE_NAME}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.TITLE_NAME_ENG}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.SEX}}</td>
+    </tr>
+</table>
+//-------------------------------------------------------------------------------------------------------------------
