@@ -1,0 +1,28 @@
+HELLO TITLE GRID<br/>
+{{dataSelected}}<br/>
+<button ng-click="countArray()">Count Array</button>
+<table  class="table table-striped table-hover table-bordered">
+    <tr class="success">
+        <td><input type="checkbox"  ng-model="checkAll" ng-click="check(checkAll)" /></td>
+        <td>ชื่อมหาวิทยาลัย</td>
+        <td>ชื่อมหาวิทยาลัย (En)</td>
+        <td>ที่อยู่</td>
+        <td>E-Mail</td>
+        <td>สถานะ</td>
+    </tr>
+    <tr data-ng-repeat="ctl_university in ctl_universities | filter : { UNIVERSITY_NAME : searchBy.Name, UNIVERSITY_NAME_ENG : searchBy.NameEng, ACTIVE : searchBy.Active}" 
+        
+        > 
+        <td><input type="checkbox" 
+                   checklist-model="dataSelected.colum"
+                   checklist-value="ctl_university.UNIVERSITY_PK"
+                   data-ng-click="setBtnDel()"
+        /></td>
+        
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_university.UNIVERSITY_NAME}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_university.UNIVERSITY_NAME_ENG}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_university.ADDRESS}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_university.E_MAIL}}</td>
+        <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_university.ACTIVE == 1 ? 'ใช้งาน' : 'ไม่ใช้งาน'}}</td>
+    </tr>
+</table>

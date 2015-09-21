@@ -6,7 +6,7 @@ function dbmodel(){
         host : "localhost",
         user : "root",
         password : "1234",
-        database : "srs_webapp"
+        database : "srs_new"
     }
     
     var db = null;

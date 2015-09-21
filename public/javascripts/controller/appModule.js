@@ -1,1 +1,1 @@
-var app = angular.module("app",["ngRoute","checklist-model"]);
+var app = angular.module("app",["ngRoute","checklist-model","ngMaterial"]);

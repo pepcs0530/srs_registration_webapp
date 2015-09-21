@@ -18,45 +18,51 @@ HELLO {{controllerName}} PAGE
                                         <form class="form-horizontal">
                                             
                                           <div class="form-group" >
-                                            <label for="inputTitleCode" 
-                                                   class="col-sm-5 control-label" >รหัสคำนำหน้า :</label>
+                                            <label for="inputUniversityName" 
+                                                   class="col-sm-5 control-label" >ชื่อมหาวิทยาลัย :</label>
                                             <div class="col-sm-2">
-                                              <input type="text" 
+                                            <input type="text" 
                                                      class="form-control" 
-                                                     id="inputTitleCode" 
-                                                     placeholder="รหัสคำนำหน้า" 
-                                                     ng-model="title.Code">
+                                                     id="inputUniversityName" 
+                                                     placeholder="ชื่อมหาวิทยาลัย" 
+                                                     ng-model="university.Name">
                                             </div>
                                           </div>
                                             
                                           <div class="form-group">
-                                            <label for="inputTitleName" class="col-sm-5 control-label">ชื่อคำนำหน้า :</label>
+                                            <label for="inputUniversityNameEng" class="col-sm-5 control-label">ชื่อมหาวิทยาลัย (En) :</label>
                                             <div class="col-sm-3">
                                               <input type="text" 
                                                      class="form-control" 
-                                                     id="inputTitleName" 
-                                                     ng-model="title.Name" 
-                                                     placeholder="ชื่อคำนำหน้า">
+                                                     id="inputUniversityNameEng" 
+                                                     ng-model="university.NameEng" 
+                                                     placeholder="ชื่อมหาวิทยาลัย (En)">
                                             </div>
                                           </div>
                                             
-                                         <div class="form-group">
-                                            <label for="inputTitleNameEng" 
-                                                   class="col-sm-5 control-label">ชื่อคำนำหน้า (En) :</label>
+                                          <div class="form-group">
+                                            <label for="inputActive" class="col-sm-5 control-label">สถานะ :</label>
                                             <div class="col-sm-3">
-                                              <input type="text" 
-                                                     class="form-control" 
-                                                     id="inputTitleNameEng" 
-                                                     placeholder="ชื่อคำนำหน้า (En)" 
-                                                     ng-model="title.NameEng">
+<!--
+                                                <input type="checkbox" 
+                                                       data-ng-click="" 
+                                                       aria-label="inputActive" 
+                                                       name="inputActive"/>ใช้งาน
+-->
+                                                <md-switch 
+                                                           ng-model="university.Active" 
+                                                           aria-label="inputActive" 
+                                                           ng-change="onChange(University.Active)">
+                                                        {{ message }}
+                                                </md-switch>
                                             </div>
-                                          </div>    
+                                          </div>       
                                             
                                           <div class="form-group">
                                             <div class="col-sm-offset-5 col-sm-10">
                                                 <button type="button" 
                                                         class="btn btn-default" 
-                                                        data-ng-click="btnSearch(title)">ค้นหา</button>
+                                                        data-ng-click="btnSearch(university)">ค้นหา</button>
                                                 <button type="button" 
                                                         class="btn btn-default" 
                                                         data-ng-click="clearValue()">ยกเลิก</button>
@@ -72,7 +78,7 @@ HELLO {{controllerName}} PAGE
                         </div>
                     </div>
                     
-                    <!--เพิ่ม-->
+                    <!--รายละเอียด-->
                     <div class="panel panel-info" id="div-add">
                         <div class="panel-heading">
                             <h3 class="panel-title">รายละเอียด</h3>
@@ -81,63 +87,71 @@ HELLO {{controllerName}} PAGE
                             <div class="container-fluid">
                                 <div class="row">
                                     
-                                        <form class="form-horizontal" method="post" name="formTitle">
+                                        <form class="form-horizontal" method="post" name="formUniversity">
+                                            
                                           <div class="form-group" >
-                                            <label for="inputTitleCode" class="col-sm-5 control-label">รหัสคำนำหน้า :</label>
+                                            <label for="inputUniversityName" 
+                                                   class="col-sm-5 control-label" >ชื่อมหาวิทยาลัย :</label>
                                             <div class="col-sm-2">
-                                              <input type="text" 
+                                            <input type="text" 
                                                      class="form-control" 
-                                                     id="inputTitleCode" 
-                                                     placeholder="รหัสคำนำหน้า" 
-                                                     name="inputTitleCode" 
-                                                     ng-model="title.Code" > 
+                                                     id="inputUniversityName" 
+                                                     placeholder="ชื่อมหาวิทยาลัย" 
+                                                     ng-model="university.Name">
                                             </div>
                                           </div>
                                             
                                           <div class="form-group">
-                                            <label for="inputTitleName" class="col-sm-5 control-label">ชื่อคำนำหน้า :</label>
+                                            <label for="inputUniversityNameEng" class="col-sm-5 control-label">ชื่อมหาวิทยาลัย (En) :</label>
                                             <div class="col-sm-3">
                                               <input type="text" 
                                                      class="form-control" 
-                                                     id="inputTitleName" 
-                                                     placeholder="ชื่อคำนำหน้า" 
-                                                     name="inputTitleName" 
-                                                     ng-model="title.Name">
-                                            </div>
-                                          </div>
-                                            
-                                         <div class="form-group">
-                                            <label for="inputTitleNameEng" class="col-sm-5 control-label">ชื่อคำนำหน้า (En) :</label>
-                                            <div class="col-sm-3">
-                                              <input type="text" 
-                                                     class="form-control" 
-                                                     id="inputTitleNameEng" 
-                                                     placeholder="ชื่อคำนำหน้า (En)" 
-                                                     name="inputTitleNameEng" 
-                                                     ng-model="title.NameEng">
-                                            </div>
-                                          </div>
-                                            
-                                         <div class="form-group">
-                                            <label for="inputTitleSex" class="col-sm-5 control-label"  >เพศ :</label>
-                                            <div class="col-sm-2">
-                                                <select 
-                                                        aria-label="Sex" 
-                                                        name="inputTitleSex" 
-                                                        ng-model="title.Sex">
-                                                    <option value="U">ไม่ระบุ</option>
-                                                    <option value="M">ชาย</option>
-                                                    <option value="F">หญิง</option>
-                                                </select>
+                                                     id="inputUniversityNameEng" 
+                                                     ng-model="university.NameEng" 
+                                                     placeholder="ชื่อมหาวิทยาลัย (En)">
                                             </div>
                                           </div>
                                             
                                           <div class="form-group">
-                                            <label for="inputTitleNameEng" class="col-sm-5 control-label">คำนำหน้าทั่วไป :</label>
-                                            <div class="col-sm-3">
-                                                <input type="checkbox" data-ng-click="" aria-label="titleGeneral" />
+                                            <label for="inputUniversityAddr" class="col-sm-5 control-label">ที่อยู่ :</label>
+                                            <div class="col-sm-5">
+                                              <input type="text" 
+                                                     class="form-control" 
+                                                     id="inputUniversityAddr" 
+                                                     ng-model="university.Addr" 
+                                                     placeholder="ที่อยู่">
                                             </div>
-                                          </div>    
+                                          </div>
+                                            
+                                          <div class="form-group">
+                                            <label for="inputUniversityEmail" class="col-sm-5 control-label">E-Mail :</label>
+                                            <div class="col-sm-5">
+                                              <input type="text" 
+                                                     class="form-control" 
+                                                     id="inputUniversityEmail" 
+                                                     ng-model="university.Email" 
+                                                     placeholder="E-Mail">
+                                            </div>
+                                          </div>
+                                            
+                                          <div class="form-group">
+                                            <label for="inputActive" class="col-sm-5 control-label">สถานะ :</label>
+                                            <div class="col-sm-3">
+<!--
+                                                <input type="checkbox" 
+                                                       data-ng-click="" 
+                                                       aria-label="inputActive" 
+                                                       name="inputActive"/>ใช้งาน
+-->
+                                                <md-switch 
+                                                           ng-model="university.Active" 
+                                                           aria-label="inputActive" 
+                                                           ng-change="onChange(University.Active)">
+                                                        {{ message }}
+                                                </md-switch>
+                                            </div>
+                                          </div>  
+                                            
                                             
                                           <!--เพิ่ม-->      
                                           <div class="form-group" id="set-btn-add">
@@ -166,7 +180,6 @@ HELLO {{controllerName}} PAGE
                                             </div>
                                           </div>
                                             
-                                            
                                         </form> 
                                         
                                     
@@ -175,7 +188,7 @@ HELLO {{controllerName}} PAGE
                         </div>
                     </div>
                     
-                    <!--ตารางคำนำหน้า-->
+                    <!--ตารางมหาวิทยาลัย-->
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">{{controllerName}}</h3>
@@ -196,16 +209,16 @@ HELLO {{controllerName}} PAGE
                                 </div>
                                 
                                 
-                                <div ng-include="'ctl_titleGrid.html'"></div>
+                                <div ng-include="'ctl_universityGrid.html'"></div>
                            
                             </div>
                         </div>
                     
                     
                     </div>
+                    
                 </div>
             </div>
-        
         </div>
     </div>
 </div>

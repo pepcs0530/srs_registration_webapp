@@ -10,6 +10,10 @@ function routeProvider($routeProvider) {
             controller: "ctl_titleController",
             templateUrl: "../../../ctl_title.html"
         })
+    .when("/ctl_university",{
+            controller: "ctl_universityController",
+            templateUrl: "../../../ctl_university.html"
+        })
         .otherwise({
             redirectTo: "/"
         });
