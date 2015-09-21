@@ -101,7 +101,7 @@ function ctl_titleController($scope,$http,$filter,$timeout){
         $scope.deleteData();
     }
     
-    $scope.xxx = function(){
+    $scope.countArray = function(){
         arrLen = $scope.dataSelected.colum.length;
         alert('arrLeng = '+arrLen);
     }
