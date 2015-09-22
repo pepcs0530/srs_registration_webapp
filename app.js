@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var title = require('./routes/ctl_title_RouteConfig');
+var university = require('./routes/ctl_university_RouteConfig');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(express.static('templates'));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/ctl_title', title);
+app.use('/ctl_university', university);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
