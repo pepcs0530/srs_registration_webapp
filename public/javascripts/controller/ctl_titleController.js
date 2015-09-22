@@ -121,11 +121,13 @@ function ctl_titleController($scope,$http,$filter,$timeout){
     //เซ็ตปุ่มลบ
     $scope.btnCheckDel = true;
     $scope.setBtnDel = function(){
+        $scope.globlCheck = false;
         if($scope.dataSelected.colum.length > 0){
             $scope.btnCheckDel = false;
         }else{
             $scope.btnCheckDel = true;
         }
+
     }
     
     //------------------------------------------------------------------------
@@ -201,6 +203,7 @@ function ctl_titleController($scope,$http,$filter,$timeout){
             NameEng: ctl_title.TITLE_NAME_ENG,
             Sex: ctl_title.SEX
         }
+    
         //ctl_title.Selected = true;
         
         //alert("Edit posted successfully");
