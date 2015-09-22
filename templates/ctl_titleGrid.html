@@ -10,14 +10,14 @@ HELLO TITLE GRID<br/>
         <td>ชื่อคำนำหน้าภาษาอังกฤษ</td>
         <td>เพศ</td>
     </tr>
-    <tr data-ng-repeat="ctl_title in ctl_titles | filter : { TITLE_CODE : searchBy.Code, TITLE_NAME : searchBy.Name, TITLE_NAME_ENG : searchBy.NameEng}" 
+    <tr data-ng-repeat="ctl_title in data = (ctl_titles | filter : { TITLE_CODE : searchBy.Code, TITLE_NAME : searchBy.Name, TITLE_NAME_ENG : searchBy.NameEng} )" 
         
         > 
-        <td><input type="checkbox" 
+        <td class="checkbox-padding"><input type="checkbox" 
                    checklist-model="dataSelected.colum"
                    checklist-value="ctl_title.TITLE_CODE"
                    data-ng-click="setBtnDel()"
-        /></td>
+        />  {{$index+1}}</td>
         
         <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.TITLE_CODE}}</td>
         <td data-ng-click="editCurrentTitle(ctl_title)">{{ctl_title.TITLE_NAME}}</td>
@@ -32,4 +32,5 @@ HELLO TITLE GRID<br/>
         <td >{{ctl_title.SEX}}</td>
 -->
     </tr>
+    <tr><td colspan="5" data-ng-if="data.length == 0">ไม่พบข้อมูล</td></tr>
 </table>

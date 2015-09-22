@@ -37,12 +37,25 @@ function ctl_titleController($scope,$http,$filter,$timeout){
     }
     
     //------------------------------------------------------------------------
-    $scope.btnSearch = function(title){ 
     
-        $scope.searchBy = { 
-            Code : title.Code,
-            Name : title.Name,
-            NameEng : title.NameEng
+    //ค้นหา
+
+    $scope.btnSearch = function(title){ 
+        if(title == undefined) {
+        
+            $scope.searchBy = { 
+                Code : "",
+                Name : "",
+                NameEng : ""
+      
+            }
+        }else {
+            $scope.searchBy = { 
+                Code : title.Code,
+                Name : title.Name,
+                NameEng : title.NameEng
+   
+            }
         }
     }
     
