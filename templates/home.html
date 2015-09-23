@@ -1,1 +1,43 @@
 HELLO {{controllerName}} PAGE
+<div ng-controller="homeController" style='padding: 40px;'>
+<!--
+  <md-content>
+    <h4>Standard date-picker</h4>
+    <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+    <h4>Disabled date-picker</h4>
+    <md-datepicker ng-model="myDate" placeholder="Enter date" disabled></md-datepicker>
+    <h4>Date-picker with min date and max date</h4>
+    <md-datepicker ng-model="myDate" placeholder="Enter date"
+        md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+  </md-content>
+-->
+    
+    <div layout="row">
+        <md-input-container>
+            <label>จังหวัด</label>
+            <md-select ng-model="prov" style="width:150px" >
+                  <md-option ng-repeat="p in ctl_provinces" 
+                             ng-click="changeProv(p.PROVINCE_PK)" 
+                             value="{{p.PROVINCE_PK}}">{{p.PROVINCE_NAME}}</md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>อำเภอ</label>
+            <md-select ng-model="amphur" style="width:150px">
+                  <md-option ng-repeat="a in ctl_amphurs" 
+                             ng-click="changeAmphur(a.AMPHUR_PK)" 
+                             value="{{a.AMPHUR_PK}}">{{a.AMPHUR_NAME}}</md-option>
+            </md-select>
+        </md-input-container>
+        
+        <md-input-container>
+            <label>ตำบล</label>
+            <md-select ng-model="district" style="width:150px">
+                  <md-option ng-repeat="d in ctl_districts" >{{d.DISTRICT_NAME}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    
+    
+</div>

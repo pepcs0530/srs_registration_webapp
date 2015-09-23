@@ -7,8 +7,12 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var admin = require('./routes/admin');
 var title = require('./routes/ctl_title_RouteConfig');
 var university = require('./routes/ctl_university_RouteConfig');
+var province = require('./routes/ctl_province_RouteConfig');
+var amphur = require('./routes/ctl_amphur_RouteConfig');
+var district = require('./routes/ctl_district_RouteConfig');
 
 var app = express();
 
@@ -33,8 +37,12 @@ app.use(express.static('templates'));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/admin', admin);
 app.use('/ctl_title', title);
 app.use('/ctl_university', university);
+app.use('/', province);
+app.use('/', amphur);
+app.use('/', district);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

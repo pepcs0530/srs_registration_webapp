@@ -6,13 +6,9 @@ function routeProvider($routeProvider) {
             controller: "homeController",
             templateUrl: "../../../home.html"
         })
-        .when("/ctl_title",{
-            controller: "ctl_titleController",
-            templateUrl: "../../../ctl_title.html"
-        })
-        .when("/ctl_university",{
-            controller: "ctl_universityController",
-            templateUrl: "../../../ctl_university.html"
+        .when("/srs_control_registration",{
+            controller: "srs_control_registrationController",
+            templateUrl: "../../../srs_control_registration.html"
         })
         .otherwise({
             redirectTo: "/"
